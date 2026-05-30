@@ -1,0 +1,55 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+
+  --color-brand-primary: #0E848F;
+  --color-brand-secondary: #109BA7;
+  --color-brand-accent-blue: #3B82F6;
+  --color-brand-accent-orange: #F59E0B;
+  --color-brand-accent-green: #10B981;
+  --color-brand-bg: #F8FAFC;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-bg font-sans text-slate-900 antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@media print {
+  @page {
+    margin: 0.5cm;
+  }
+  body * {
+    visibility: hidden;
+  }
+  .print-content, .print-content * {
+    visibility: visible;
+  }
+  .print-content {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+    overflow: visible !important;
+  }
+  .print\:hidden {
+    display: none !important;
+  }
+  /* Ensure parent containers don't clip */
+  .print\:overflow-visible {
+    overflow: visible !important;
+  }
+}
+
